@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "release": "pnpm run build && pnpm run changeset && pnpm run changeset:version && pnpm run changeset:publish"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.9.7",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "prettier": "^2.5.1",
+    "turbo": "latest"
+  },
+  "workspaces": [
+    "apps",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@7.15.0",
+  "name": "my-turborepo",
+  "dependencies": {
+    "@changesets/cli": "^2.26.1"
+  }
+}
